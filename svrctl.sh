@@ -16,6 +16,8 @@ start_base(){
         exit 1
     fi
     /usr/bin/nohup /root/.pyenv/shims/python /export/stock_notes/stock_notes.py runserver -h 0.0.0.0 -p 8888 &
+    # 已将单个文件的开发方式改成了工程文件的形式，主要通过蓝图连接启动文件和app文件里的各个模块
+    # /usr/bin/nohup /root/.pyenv/shims/python /export/stock_notes/stock_notes_pro.py runserver -h 0.0.0.0 -p 8888 &
 }
 
 start_test(){
