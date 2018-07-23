@@ -6,7 +6,7 @@ from flask import request
 from . import main
 
 
-@app.route('/todo/api/v1.0/tasks', methods=['POST', 'GET'])
+@main.route('/todo/api/v1.0/tasks', methods=['POST', 'GET'])
 def meg():
     data = request.data
     j_data = json.loads(data)
@@ -34,7 +34,7 @@ def meg_test():
     stock_pd = pd.concat(stock_list)
     return stock_pd.to_json(orient='records')
 
-@main.route('/todotest/api/v1.0/tasks/<code>', methods=['POST','GET'])
+@main.route('/todo/api/v1.0/tasks/<code>', methods=['POST','GET'])
 def meg_single(code):
     codes = str(code)
     stock_list = []
