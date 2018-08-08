@@ -1,0 +1,28 @@
+<button type="button" class="get">get获取api</button>
+<button type="button" class="post">post获取api</button>
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+<script>
+    let get_btn = document.querySelector('.get');
+    let post_btn = document.querySelector('.post');
+    
+    get_btn.addEventListener('click',get);
+    post_btn.addEventListener('click',post);
+
+    function post(){
+        // axios.post('http://3s.net579.com:23484/todo/api/v1.0/tasks')
+        axios.post('http://119.29.72.177:8888/todo/api/v1.0/tasks')
+            .then(r=>{
+                console.log(r);
+            })
+    }
+
+     function get(){
+        // axios.get('http://3s.net579.com:23484/todo/api/v1.0/tasks')
+        axios.get('http://119.29.72.177:8888/todo/api/v1.0/tasks')
+            .then(r=>{
+                console.log(r);
+            })
+    }
+
+
+</script>

@@ -9,7 +9,7 @@ from flask import jsonify
 import request, json
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/todo/api/v1.0/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():

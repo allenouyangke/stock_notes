@@ -8,7 +8,7 @@ from . import main
 
 @main.route('/todo/api/v1.0/tasks', methods=['POST', 'GET'])
 def meg():
-    data = request.data
+    data = request.data2
     j_data = json.loads(data)
     print type(j_data)
     stock_num = j_data

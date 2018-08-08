@@ -26,6 +26,7 @@ def meg():
         stock_list.append(df)
     stock_pd = pd.concat(stock_list)
     return stock_pd.to_json(orient='records')
+
 if __name__ == '__main__':
   # app.run(host="0.0.0.0", port=8888, debug=True
     manager.run()
