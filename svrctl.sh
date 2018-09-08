@@ -9,7 +9,7 @@
 #               sh scrctl.sh <start_base|start_test|stop|restart|ps>
 # -------------------------------------------------------------------------------
 
-serve_ps = 'stock_notes'
+serve_ps='stock_notes'
 
 start_base(){
     PNUM=`ps -ef | grep $serve_ps | grep -v grep | wc -l`
