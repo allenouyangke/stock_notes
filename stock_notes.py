@@ -5,11 +5,12 @@ import pandas as pd
 import json
 from flask_cors import *
 from flask import request
-from flask_script import Manager
+from flask_script import Manager,Server
 
 
 app = Flask(__name__)
 manager = Manager(app)
+server = Server(host="0.0.0.0", port=8888)
 # 通过flask_cors处理flask的跨域问题
 CORS(app, supports_credentials=True)
 
@@ -30,5 +31,5 @@ def meg():
 
 if __name__ == '__main__':
   # app.run(host="0.0.0.0", port=8888, debug=True
-    manager.run(host='0.0.0.0',port="8888")
+    manager.run()
 
