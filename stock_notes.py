@@ -7,6 +7,7 @@ from flask_cors import *
 from flask import request
 from flask_script import Manager
 
+
 app = Flask(__name__)
 manager = Manager(app)
 # 通过flask_cors处理flask的跨域问题
@@ -29,5 +30,5 @@ def meg():
 
 if __name__ == '__main__':
   # app.run(host="0.0.0.0", port=8888, debug=True
-    manager.run()
+    manager.run(host='0.0.0.0',port="8888")
 
