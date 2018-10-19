@@ -32,12 +32,14 @@ def meg():
     stock_list = []
     for code in stock_num:
         # df= ts.get_k_data(code, ktype='5')
+        code = string(code)
         if (code.starswith('6')):
             code = code + '.SH'
         else:
             code = code + '.SZ'
 
         df = pro.daily(ts_code=code, trade_date=today)
+        print df
         df= df.iloc[[-1]]
         stock_list.append(df)
     stock_pd = pd.concat(stock_list)
