@@ -3,10 +3,17 @@ from flask import Flask
 import tushare as ts
 import pandas as pd
 import json
+import datetime
 from flask_cors import *
 from flask import request
 from flask_script import Manager,Server
 
+#设置ts的token
+ts.set_token('cdfe3ce3a8717b588f35f80a39d239ea4f56e224fd6163d4a3568e4b')
+pro = ts.pro_api()
+
+#获取当前日期
+today = datetime.date.today().strftime('%Y%m%d')
 
 app = Flask(__name__)
 manager = Manager(app)
@@ -24,7 +31,13 @@ def meg():
     #stock_num = ['000001']
     stock_list = []
     for code in stock_num:
-        df= ts.get_k_data(code, ktype='5')
+        # df= ts.get_k_data(code, ktype='5')
+        if (code.starswith('6')):
+            code = code + '.SH'
+        else:
+            code = code + '.SZ'
+
+        df = pro.daily(ts_code=code, trade_date=today)
         df= df.iloc[[-1]]
         stock_list.append(df)
     stock_pd = pd.concat(stock_list)
