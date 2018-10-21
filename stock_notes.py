@@ -3,17 +3,11 @@ from flask import Flask
 import tushare as ts
 import pandas as pd
 import json
-import datetime
+from datetime import timedelta, datetime
 from flask_cors import *
 from flask import request
 from flask_script import Manager,Server
 
-#设置ts的token
-ts.set_token('cdfe3ce3a8717b588f35f80a39d239ea4f56e224fd6163d4a3568e4b')
-pro = ts.pro_api()
-
-#获取当前日期
-today = datetime.date.today().strftime('%Y%m%d')
 
 app = Flask(__name__)
 manager = Manager(app)
@@ -21,6 +15,20 @@ server = Server(host="0.0.0.0", port=8888)
 manager.add_command('runserver',server)
 # 通过flask_cors处理flask的跨域问题
 CORS(app, supports_credentials=True)
+
+#设置ts的token
+ts.set_token('cdfe3ce3a8717b588f35f80a39d239ea4f56e224fd6163d4a3568e4b')
+pro = ts.pro_api()
+
+#获取当前日期
+d=datetime.now() #获取当前周几，如果是周末需要往前获取周五的日期
+if (d.weekday() == 6):
+    today = (datetime.today() + timedelta(-2)).strftime('%Y%m%d')
+elif (d.weekday() == 5):
+    today = (datetime.today() + timedelta(-1)).strftime('%Y%m%d')
+else:
+    today = datetime.today()
+
 
 @app.route('/todo/api/v1.0/tasks', methods=['POST','GET'])
 def meg():
@@ -32,8 +40,8 @@ def meg():
     stock_list = []
     for code in stock_num:
         # df= ts.get_k_data(code, ktype='5')
-        code = string(code)
-        if (code.starswith('6')):
+        code = code.encode('ascii','ignore')
+        if (code.startswith('6')):
             code = code + '.SH'
         else:
             code = code + '.SZ'
