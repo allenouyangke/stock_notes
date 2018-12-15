@@ -27,7 +27,7 @@ if (d.weekday() == 6):
 elif (d.weekday() == 5):
     today = (datetime.today() + timedelta(-1)).strftime('%Y%m%d')
 else:
-    today = datetime.today()
+    today = datetime.today().strftime('%Y%m%d')
 
 
 @app.route('/todo/api/v1.0/tasks', methods=['POST','GET'])
@@ -56,4 +56,3 @@ def meg():
 if __name__ == '__main__':
   # app.run(host="0.0.0.0", port=8888, debug=True
     manager.run()
-
