@@ -39,7 +39,7 @@ class baceStock(BaseModel):
     delist_date = Column(String) #退市日期
     is_hs = Column(String) #是否沪深港通标的，N否 H沪股通 S深股通
 
-def baseinit():
+def base_init():
     data = pro.stock_basic(exchange='', list_status='L', fields='ts_code,symbol,name,area,industry,list_date')
     data.to_sql('base_stock',ENGINE,if_exists='append')
 
