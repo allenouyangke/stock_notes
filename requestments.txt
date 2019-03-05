@@ -1,4 +1,5 @@
 alembic==0.9.10
+aniso8601==5.1.0
 Babel==0.9.6
 backports.ssl-match-hostname==3.4.0.2
 beautifulsoup4==4.6.0
@@ -19,9 +20,11 @@ Flask-Cors==3.0.6
 Flask-DebugToolbar==0.10.1
 Flask-Login==0.4.1
 Flask-Migrate==2.2.1
+Flask-RESTful==0.3.7
 Flask-Script==2.0.6
 Flask-SQLAlchemy==1.0
 Flask-WTF==0.10.0
+get==2018.11.19
 idna==2.7
 iniparse==0.4
 ipaddress==1.0.16
@@ -39,6 +42,7 @@ mana==4.8
 Markdown==2.4.1
 MarkupSafe==1.0
 msgpack==0.6.1
+MySQL-python==1.2.5
 numpy==1.14.5
 oauthlib==2.0.1
 pandas==0.23.3
@@ -46,7 +50,9 @@ perf==0.1
 Pillow==2.0.0
 ply==3.4
 policycoreutils-default-encoding==0.1
+post==2018.11.20
 prettytable==0.7.2
+public==2018.11.20
 pyasn1==0.1.9
 pycparser==2.14
 pycurl==7.19.0
@@ -54,6 +60,7 @@ Pygments==1.4
 pygobject==3.14.0
 pygpgme==0.3
 pyliblzma==0.5.3
+PyMySQL==0.9.3
 python-augeas==0.5.0
 python-dateutil==2.7.3
 python-dmidecode==3.10.13
@@ -64,7 +71,10 @@ pyudev==0.15
 pyxattr==0.5.1
 PyYAML==3.10
 pyzmq==18.0.0
+query-string==2018.11.20
 registries==0.1
+relativetimebuilder==0.2.0
+request==2018.11.20
 requests==2.19.1
 seobject==0.1
 sepolicy==1.1
