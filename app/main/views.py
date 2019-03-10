@@ -11,32 +11,40 @@ from . import main
 ts.set_token('cdfe3ce3a8717b588f35f80a39d239ea4f56e224fd6163d4a3568e4b')
 pro = ts.pro_api()
 
+
 def get_date():
     #获取当前日期
     d=datetime.now() #获取当前周几，如果是周末需要往前获取周五的日期
     if (d.weekday() == 6):  #周日
         today = (datetime.today() + timedelta(-2)).strftime('%Y%m%d')
         print "day log 1"
+        return today
     elif (d.weekday() == 5):  #周六
         today = (datetime.today() + timedelta(-1)).strftime('%Y%m%d')
         print "day log 2"
+        return today
     elif (d.hour > 16 ):
         today = datetime.today().strftime('%Y%m%d')
         print "day log 3"
+        return today
     elif (d.weekday() == 0):  #周一
         today = (datetime.today() + timedelta(-3)).strftime('%Y%m%d')
         print "day log 4"
+        return today
     elif (d.hour <= 15 ):
         today = (datetime.today() + timedelta(-1)).strftime('%Y%m%d')
         print "day log 5"
+        return today
     else:
         today = datetime.today().strftime('%Y%m%d')
         print "day log 6"
+        return today
 
 
 @main.route('/todo/api/v1.0/tasks', methods=['POST'])
 def meg():
-    get_date() #获取当前日期
+    today = get_date()
+    #获取当前日期
     # print "d.hour %d " % d.hour
     data = request.data
     j_data = json.loads(data)
