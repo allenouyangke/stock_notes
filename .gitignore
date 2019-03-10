@@ -1,3 +1,5 @@
 .vscode
 *.pyc
 .update_git.sh
+.Untitled.ipynb
+.ipynb_checkpoints/*
