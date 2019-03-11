@@ -1,6 +1,6 @@
 .vscode
 *.pyc
 .update_git.sh
-.Untitled.ipynb
+*.ipynb
 .ipynb_checkpoints
 .idea
