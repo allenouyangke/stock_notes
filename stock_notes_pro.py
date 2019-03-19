@@ -8,6 +8,9 @@ from flask_migrate import Migrate, MigrateCommand
 from base_stock import base_init
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+# 中文可以正常显示
+app.config['JSON_AS_ASCII'] = False
+
 manager = Manager(app)
 migrate = Migrate(app, db)
 
@@ -23,7 +26,7 @@ manager.add_command('runserver',server)
 CORS(app, supports_credentials=True)
 
 # 初始化导入最新股票基础信息
-base_init()
+# base_init()
 
 
 if __name__ == '__main__':

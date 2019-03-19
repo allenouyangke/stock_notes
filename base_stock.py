@@ -24,11 +24,13 @@ engine = create_engine("mysql://root:123456@127.0.0.1/stock_note?charset=utf8", 
 # 初始化，获取tushare的basic stock，并入库，方便前端进行查询搜索
 def base_init():
     print 'start to init base stock ............'
-    data = pro.stock_basic(fields='ts_code,symbol,name,area,industry,market,list_date')
+    data = pro.stock_basic(exchange='', list_status='L', fields='ts_code,symbol,name,area,industry,market,list_date')
+    print data.area
     data.to_sql('base_stock',engine,if_exists='append',index=False)
+    # data.area.to_sql('area',engine,if_exists='replace',index=False)
     print 'init base stock success !!............'
 
 if __name__ == "__main__":
-    Base.metadata.create_all()
+    BaseModel.metadata.create_all()
     baseinit()
 
